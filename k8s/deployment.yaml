@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-k8s-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-k8s-demo
+  template:
+    metadata:
+      labels:
+        app: ai-k8s-demo
+    spec:
+      containers:
+      - name: ai-k8s-container
+        image: vanhaiha/ai-k8s-demo:latest
+        ports:
+        - containerPort: 5000
